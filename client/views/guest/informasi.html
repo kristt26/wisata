@@ -1,0 +1,42 @@
+<div class="col-xl-12 col-md-12 col-sm-12 col-12">
+    <div class="card border-3 border-top border-top-primary">
+        <div class="card-body">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="page-header">
+                    <h2 class="pageheader-title"><i class="fa fa-fw fa-home"></i> Informasi </h2>
+                    <div class="page-breadcrumb">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a ui-sref="admin-home" class="breadcrumb-link">Guest</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">Informasi</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="page-body">
+                    <div class="card-body p-3">
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" ng-model="search" type="search" placeholder="Search"
+                                aria-label="Search">
+                        </form>
+                    </div>
+                    <app.loading busy="helper.IsBusy"></app.loading>
+                    <ul class="list-group list-group-flush" ng-repeat="item in source |filter:search | limitTo:10">
+                        <li class="list-group-item">
+                            <div class="listblog">
+                                <a ui-sref="guest-detail({id:item.idcontent})">{{item.title}}</a>
+                                <p>{{item.created|date:'dd-MM-yyyy hh:ss'}}</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,686 @@
+<ul class="nav nav-tabs stepper" id="myTab" role="tablist">
+    <li class="nav-item stepper-item" ng-class="{'stepper-complete':item.complete, 'stepper-selected':item.selected}"
+        ng-repeat="item in steppers">
+        <button ng-click="select(item.idstepper)" ng-disabled="!item.complete"
+            ng-class="{'active':$index==0, 'disabled':!item.selected && !item.complete}" id="home-tab" data-toggle="tab"
+            data-target="#tab{{item.idstepper}}" href="#tab{{item.idstepper}}" role="tab" aria-controls="home"
+            aria-selected="true"></button>
+    </li>
+
+
+</ul>
+<div class="col text-center mb-3">
+    <h4 style="text-transform: uppercase;" class="text-center">{{selectedSteperText}}</h4>
+</div>
+
+<!-- Tab panes -->
+<div class="container" id="tabContent">
+    <app.loading busy="!showContent"></app.loading>
+    <div class="tab-content" ng-show="showContent">
+        <div class="tab-pane active" id="tab1" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header bg-dark">
+                        <h4 class="text-white">BIODATA</h4>
+                    </div>
+                    <form ng-submit="save(1,siswa)">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">NIS</label>
+                                        <input required ng-model="siswa.nis" type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">NISN</label>
+                                        <input required ng-model="siswa.nisn" type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">NIK</label>
+                                        <input required ng-model="siswa.nik" type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Nama</label>
+                                        <input required ng-model="siswa.nama" type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Tempat Lahir</label>
+                                        <input required ng-model="siswa.tempatlahir" type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Tanggal Lahir</label>
+                                        <input required ng-model="siswa.tanggallahir" date-input type="date"
+                                            class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Jenis Kelamin</label>
+                                        <select class="form-control" ng-model="siswa.jeniskelamin"
+                                            ng-options="item as item for item in helper.genders">
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label">Alamat</label>
+                                        <textarea required ng-model="siswa.alamat" class="form-control"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Agama</label>
+                                        <select class="form-control" ng-model="siswa.agama"
+                                            ng-options="item as item for item  in helper.agama">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Kewarganegaraan</label>
+                                        <select class="form-control" ng-model="siswa.kewarganegaraan"
+                                            ng-options="item as item for item  in helper.kewarganegaraan">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Status dalam Keluarga</label>
+                                        <select class="form-control" ng-model="siswa.statusdalamkeluarga"
+                                            ng-options="item as item for item  in helper.statusdalamkeluarga">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Anak ke</label>
+                                        <input required ng-model="siswa.anakke" type="number" number-input min="1"
+                                            max="50" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Jumlah Saudara Kandung</label>
+                                        <input required ng-model="siswa.jumlahsaudarakandung" number-input min="0"
+                                            max="50" type="text" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label">Suku Asal</label>
+                                        <input required ng-model="siswa.asalsuku" type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Kontak</label>
+                                        <input required ng-model="siswa.kontak" type="text" class="form-control">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Berat Badan</label>
+                                        <input required ng-model="siswa.beratbadan" type="number" number-input
+                                            class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Tinggi Badan</label>
+                                        <input required ng-model="siswa.tinggibadan" type="number" number-input
+                                            class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Golongan Darah</label>
+                                        <select class="form-control" ng-model="siswa.golongandarah"
+                                            ng-options="item as item for item  in helper.golongandarah">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Asal SMP</label>
+                                        <textarea required ng-model="siswa.asalsekolah" class="form-control"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Alamat SMP</label>
+                                        <textarea required ng-model="siswa.alamatsmp" class="form-control"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Status SMP</label>
+                                        <select class="form-control" ng-model="siswa.statussmp"
+                                            ng-options="item as item for item  in helper.statussmp">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Tahun Lulus</label>
+                                        <input required ng-model="siswa.tahunlulus" number-input type="number"
+                                            min="2000" max="9999" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Email</label>
+                                        <input required ng-model="siswa.email" type="email" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Jurusan Pilihan</label>
+                                        <select class="form-control" ng-model="siswa.jurusan"
+                                            ng-options="item as item for item  in helper.jurusan">
+                                        </select>
+                                    </div>
+
+
+                                    <div style="margin-top: 30px;" ng-if="!siswa.idcalonsiswa">
+                                        <h3>Data Akun</h3>
+                                        <div class="form-group">
+                                            <label class="col-form-label">User Name</label>
+                                            <input required ng-model="siswa.username" type="text" class="form-control"
+                                                autocomplete="false">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-form-label">Password</label>
+                                            <input required ng-model="siswa.password" type="password"
+                                                class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-form-label">Confirm Password</label>
+                                            <input required ng-model="siswa.confirm" type="password"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary"><i class=" fa fa-spinner fa-spin"
+                                        ng-show="helper.IsBusy"></i>NEXT</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane" id="tab2" role="tabpanel" aria-labelledby="messages-tab">
+            <div class="card">
+                <div class="card-header bg-dark">
+                    <h4 class="text-white"> ORANG TUA</h4>
+                </div>
+                <div class="card-body">
+                    <form ng-submit="save(2,siswa.orangtua)">
+                        <div class="card" ng-repeat="item in siswa.orangtua">
+                            <div class="card-header bg-primary">{{item.jenisorangtua}}</div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="col-form-label">Nama</label>
+                                    <input ng-model="item.nama" type="text" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label">NIK</label>
+                                    <input ng-required="item.nama" ng-model="item.nik" type="text" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-form-label">Tanggal Lahir</label>
+                                    <input ng-required="item.nama" ng-model="item.tahunlahir" date-input type="date"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label">Pekerjaan</label>
+                                    <select class="form-control" ng-model="item.pekerjaan" ng-required="item.nama"
+                                        ng-options="item as item for item in helper.pekerjaan">
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label">Pendidikan</label>
+                                    <select class="form-control" ng-model="item.pendidikan" ng-required="item.nama"
+                                        ng-options="item as item for item in helper.pendidikan">
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label">Penghasilan Orang Tua</label>
+                                    <select class="form-control" ng-model="item.penghasilan" ng-required="item.nama"
+                                        ng-options="item as item for item in helper.pendapatan">
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="d-inline-flex" style="margin-bottom: 15px;">
+                                        <label style="margin-top: 4px; margin-right: 20px;">Berkebutuhan
+                                            Khusus</label>
+                                        <div class="checkbox-custom">
+                                            <label>
+                                                <input ng-model="item.kebutuhankhusus" type="checkbox">
+                                                <b></b>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="submit" class="btn btn-primary"><i class=" fa fa-spinner fa-spin"
+                                    ng-show="helper.IsBusy"></i>Next</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="tab-pane" id="tab3" role="tabpanel" aria-labelledby="messages-tab">
+            <div class="card">
+                <div class="card-header bg-dark">
+                    <h4 class="text-white"> NILAI</h4>
+                </div>
+                <div class="card-body">
+                    <form ng-submit="save(3,siswa.nilai)">
+                        <div class="card">
+                            <div class="card-header bg-primary">Nilai</div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="col-form-label">UAN</label>
+                                    <input required ng-model="siswa.nilai.uas" min="0" max="100" step="0.10"
+                                        number-input type="number" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label">Bahasa Indonesia</label>
+                                    <input required ng-model="siswa.nilai.bahasaindonesia" min="0" max="100" step="0.10"
+                                        number-input type="number" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label">Bahasa Inggris</label>
+                                    <input required ng-model="siswa.nilai.bahasainggris" min="0" max="100" step="0.10"
+                                        number-input type="number" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label">Matematika</label>
+                                    <input required ng-model="siswa.nilai.matematika" min="0" max="100" step="0.10"
+                                        number-input type="number" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label">I P A</label>
+                                    <input required ng-model="siswa.nilai.ipa" min="0" max="100" step="0.10"
+                                        number-input type="number" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="submit" class="btn btn-primary"><i class=" fa fa-spinner fa-spin"
+                                    ng-show="helper.IsBusy"></i>Next</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="tab-pane" id="tab4" role="tabpanel" aria-labelledby="messages-tab">
+            <div class="card">
+                <div class="card-header bg-dark">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="text-white">Data Prestasi</h4>
+                        <div> <a class="btn btn-outline-light" data-toggle="modal" data-target="#modalPrestasi" href=""
+                                ng-click="model={idprestasi:0, idcalonsiswa:siswa.idcalonsiswa};title='Tambah Prestasi'"><i
+                                    class="fa fa-plus-square fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form ng-submit="save(4,siswa.prestasi)">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nama Prestasi</th>
+                                    <th>Jenis Prestasi</th>
+                                    <th>Pengelenggara</th>
+                                    <th>Tingkat</th>
+                                    <th>Tahun</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in siswa.prestasi">
+                                    <td scope="row">{{$index+1}}</td>
+                                    <td scope="row">{{item.namaprestasi}}</td>
+                                    <td scope="row">{{item.jenisprestasi}}</td>
+                                    <td scope="row">{{item.penyelenggaraan}}</td>
+                                    <td scope="row">{{item.tingkat}}</td>
+                                    <td scope="row">{{item.tahun|date:'dd-MM-yyyy'}}</td>
+                                    <td scope="row">
+                                    <td nowrap>
+                                        <div class="tdaction justify-content-start">
+                                            <a class="btn btn-outline-warning" href="" data-toggle="modal"
+                                                data-target="#modalPrestasi" ng-click="selectItem(item)"><i
+                                                    class="fa fa-edit fa-1x"></i></a>
+                                            <a class="btn btn-outline-danger" href="" ng-click="deletePrestasi(item)"><i
+                                                    class="fa fa-trash fa-1x"></i></a>
+
+                                        </div>
+                                    </td>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <div class="modal-footer">
+
+                            <button type="submit" class="btn btn-primary"><i class=" fa fa-spinner fa-spin"
+                                    ng-show="helper.IsBusy"></i>Next</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="tab-pane" id="tab5" role="tabpanel" aria-labelledby="settings-tab">
+            <div class="card">
+                <div class="card-header bg-dark">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="text-white">Data Kesejahteraan</h4>
+                        <div> <a class="btn btn-outline-light" data-toggle="modal" data-target="#modalKesejahteraan"
+                                href=""
+                                ng-click="model={idkesejahteraan:0, idcalonsiswa:siswa.idcalonsiswa};title='Tambah Kesejahteraan'"><i
+                                    class="fa fa-plus-square fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form ng-submit="save(5,siswa.kesejahteraan)">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nomor</th>
+                                    <th>Jenis </th>
+                                    <th>Dari Tanggal</th>
+                                    <th>Sampai Tanggal</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in siswa.kesejahteraan">
+                                    <td scope="row">{{$index+1}}</td>
+                                    <td scope="row">{{item.nomor}}</td>
+                                    <td scope="row">{{item.jeniskesejahteraan}}</td>
+                                    <td scope="row">{{item.daritahun|date:'dd-MM-yyyy'}}</td>
+                                    <td scope="row">{{item.sampaitahun|date:'dd-MM-yyyy'}}</td>
+                                    <td scope="row">
+                                    <td nowrap>
+                                        <div class="tdaction justify-content-start">
+                                            <a class="btn btn-outline-warning" href="" data-toggle="modal"
+                                                data-target="#modalKesejahteraan" ng-click="selectItem(item)"><i
+                                                    class="fa fa-edit fa-1x"></i></a>
+                                            <a class="btn btn-outline-danger" href=""
+                                                ng-click="deleteKesejahteraan(item)"><i
+                                                    class="fa fa-trash fa-1x"></i></a>
+
+                                        </div>
+                                    </td>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <div class="modal-footer">
+
+                            <button type="submit" class="btn btn-primary"><i class=" fa fa-spinner fa-spin"
+                                    ng-show="helper.IsBusy"></i>Next</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="tab-pane" id="tab6" role="tabpanel" aria-labelledby="settings-tab">
+            <div class="card">
+                <div class="card-header bg-dark">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="text-white">Data Beasiswa</h4>
+                        <div> <a class="btn btn-outline-light" data-toggle="modal" data-target="#modalBeasiswa" href=""
+                                ng-click="model={idbeasiswa:0, idcalonsiswa:siswa.idcalonsiswa};title='Tambah Beasiswa'"><i
+                                    class="fa fa-plus-square fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form ng-submit="save(6,siswa.beasiswa)">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Jenis </th>
+                                    <th>Penyelenggara</th>
+                                    <th>Dari Tanggal</th>
+                                    <th>Sampai Tanggal</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in siswa.beasiswa">
+                                    <td scope="row">{{$index+1}}</td>
+                                    <td scope="row">{{item.jenisbeasiswa}}</td>
+                                    <td scope="row">{{item.penyelenggaraan}}</td>
+                                    <td scope="row">{{item.tahunmulai|date:'dd-MM-yyyy'}}</td>
+                                    <td scope="row">{{item.tahunselesai|date:'dd-MM-yyyy'}}</td>
+                                    <td nowrap>
+                                        <div class="tdaction justify-content-start">
+                                            <a class="btn btn-outline-warning" href="" data-toggle="modal"
+                                                data-target="#modalBeasiswa" ng-click="selectItem(item)"><i
+                                                    class="fa fa-edit fa-1x"></i></a>
+                                            <a class="btn btn-outline-danger" href="" ng-click="deleteBeasiswa(item)"><i
+                                                    class="fa fa-trash fa-1x"></i></a>
+
+                                        </div>
+                                    </td>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <div class="modal-footer">
+
+                            <button type="submit" class="btn btn-primary"><i class=" fa fa-spinner fa-spin"
+                                    ng-show="helper.IsBusy"></i>Next</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="tab-pane" id="tab7" role="tabpanel" aria-labelledby="settings-tab">
+            <div class="card">
+                <div class="card-header bg-dark">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="text-white">Data Persyaratan</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form ng-submit="save(7,siswa.detailpersyaratan)">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nama Persyaratan </th>
+                                    <th>Berkas</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in siswa.detailpersyaratan">
+                                    <td scope="row">{{$index+1}}</td>
+                                    <td scope="row">{{item.persyaratan}}</td>
+                                    <td scope="row">
+                                        <fileinput filename="item.berkas" name="item.idpersyaratan" showview="false"
+                                            src='' persyaratan="item">
+                                        </fileinput>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <div class="modal-footer">
+
+                            <button type="submit" class="btn btn-primary"><i class=" fa fa-spinner fa-spin"
+                                    ng-show="helper.IsBusy"></i>Next</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="tab-pane" id="tab8" role="tabpanel" aria-labelledby="settings-tab">
+            <div class="card">
+                <div class="card-header bg-dark">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="text-white">Selesai</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h5>Periksa Kembali Semua Data Anda Sebelum Mengahiri Proses Pendaftaran</h5>
+                    <p>Salam</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" ng-click="save(8,siswa)" class="btn btn-primary"><i
+                            class=" fa fa-spinner fa-spin" ng-show="helper.IsBusy"></i>SELESAI</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalPrestasi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Prestasi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form ng-submit="addPrestasi(model)">
+                    <div class="form-group">
+                        <label class="col-form-label">Nama Prestasi</label>
+                        <input required ng-model="model.namaprestasi" placeholder="ex : Juara I" type="text"
+                            class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Jenis Prestasi</label>
+                        <input required ng-model="model.jenisprestasi" placeholder="ex: Lomba Cerdas Cermat" type="text"
+                            class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Penyelenggara</label>
+                        <input required ng-model="model.penyelenggaraan" placeholder="Dinas Pendidikan" type="text"
+                            class="form-control">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-form-label">Tingkat</label>
+                        <select class="form-control" ng-model="model.tingkat"
+                            ng-options="item as item for item in helper.tingkat">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Tanggal Pelaksanaan</label>
+                        <input required ng-model="model.tahun" date-input type="date" class="form-control">
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary"><i class=" fa fa-spinner fa-spin"
+                                ng-show="helper.IsBusy"></i>Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalBeasiswa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Beasiswa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form ng-submit="addBeasiswa(model)">
+                    <div class="form-group">
+                        <label class="col-form-label">Jenis Beasiswa</label>
+                        <input required ng-model="model.jenisbeasiswa" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Penyelenggara</label>
+                        <input required ng-model="model.penyelenggaraan" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Berlaku Dari Tanggal</label>
+                        <input required ng-model="model.tahunmulai" date-input type="date" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Beraku Hingga Tanggal</label>
+                        <input required ng-model="model.tahunselesai" date-input type="date" class="form-control">
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary"><i class=" fa fa-spinner fa-spin"
+                                ng-show="helper.IsBusy"></i>Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalKesejahteraan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Kesejahteraan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form ng-submit="addKesejahteraan(model)">
+                    <div class="form-group">
+                        <label class="col-form-label">Nomor</label>
+                        <input required ng-model="model.nomor" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Jenis Kesejahteraan</label>
+                        <input required ng-model="model.jeniskesejahteraan" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Berlaku Dari Tanggal</label>
+                        <input required ng-model="model.daritahun" date-input type="date" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Beraku Hingga Tanggal</label>
+                        <input required ng-model="model.sampaitahun" date-input type="date" class="form-control">
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary"><i class=" fa fa-spinner fa-spin"
+                                ng-show="helper.IsBusy"></i>Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    #tabContent {
+        min-height: 75vh;
+    }
+</style>

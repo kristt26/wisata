@@ -1,0 +1,82 @@
+<div id="home" class="row">
+    <div id="left-side" class="col-md-9">
+        <app.htmlview model="selectedContent"></app.htmlview>
+    </div>
+    <!-- <div id="right-side" class="col-md-3">
+        <div class="card">
+            <div class="card-body bg-success">
+                <p class="card-text text-light">PENDAFTARAN</p>
+            </div>
+            <div class="card-body text-center">
+                <div ng-show="showMenu">
+                    <a ng-show="daftarComplete" ui-sref="siswa-home" class="btn btn-outline-success">
+                        <p>PROFILE</p>
+                    </a>
+
+                    <button ng-if="!taActive" class="btn btn-outline-danger">
+                        BELUM DIBUKA
+                    </button>
+
+                    <a ng-show="taActive && daftarComplete==false" ui-sref="guest-daftar"
+                        class="btn btn-outline-success">
+                        <p>DAFTAR</p>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <hr />
+        <div class="card">
+            <div class="card-body bg-primary">
+                <p class="card-text">INFORMASI</p>
+            </div>
+            <ul class="list-group list-group-flush" ng-repeat="item in informasi | limitTo:5">
+                <li class="list-group-item">
+                    <div class="listblog">
+                        <a ui-sref="guest-detail({id:item.idcontent})">{{item.title}}</a>
+                        <p>{{item.created|date:'dd-MM-yyyy hh:ss'}}</p>
+                    </div>
+                </li>
+
+            </ul>
+            <div class="card-body">
+                <a ui-sref="guest-informasi" class="card-link">More</a>
+            </div>
+        </div>
+        <hr />
+        <div class="card">
+            <div class="card-body bg-warning">
+                <h5 class="card-title">PENGUMUMAN</h5>
+            </div>
+            <ul class="list-group list-group-flush" ng-repeat="item in pengumuman | limitTo:5">
+                <li class="list-group-item">
+                    <div class="listblog">
+                        <a ui-sref="guest-detail({id:item.idcontent})">{{item.title}}</a>
+                        <p>{{item.created|date:'dd-MM-yyyy hh:ss'}}</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="card-body">
+                <a ui-sref="guest-pengumuman" class="card-link">More ...</a>
+            </div>
+        </div>
+
+    </div> -->
+</div>
+
+
+
+<style>
+    #home {
+        margin: 10px;
+        min-height: 80vh;
+    }
+
+    #left-side-content {
+        padding: 5px;
+    }
+
+    a:hover {
+        color: rgb(136, 208, 245);
+    }
+</style>

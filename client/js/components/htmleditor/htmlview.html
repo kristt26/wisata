@@ -1,0 +1,29 @@
+<div class="card" ng-show="$ctrl.model">
+    <div class="card-body" ng-class="$ctrl.model.type=='pengumuman'?'bg-warning' : 'bg-primary'">
+        <h2 class="card-title"> {{$ctrl.model.type}}</h2>
+    </div>
+    <div class="card-body content">
+        <h2 class="blog-post-title">{{$ctrl.model.title}}</h2>
+        <p class="blog-post-meta">{{$ctrl.model.created|date:'dd MMM yyyy hh:ss'}}</p>
+        <hr>
+        <div class="blog-content" ng-bind-html="$ctrl.model.content"></div>
+    </div><!-- /.blog-post -->
+</div>
+
+
+
+<style>
+    .card {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .content {
+        min-height: 70vh;
+
+    }
+
+    .card-title {
+        text-transform: uppercase;
+    }
+</style>

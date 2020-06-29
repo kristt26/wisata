@@ -1,0 +1,376 @@
+<!-- ============================================================== -->
+<!-- pageheader  -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="page-header">
+            <h2 class="pageheader-title"><i class="fa fa-fw fa-home"></i> Home </h2>
+            <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a ui-sref="siswa-home" class="breadcrumb-link">YPK</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Profile</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div style="width: 100%; display: flex; justify-content: flex-end; padding-bottom: 20px; margin-right: 20px;">
+        <button class="btn btn-primary" ng-click="print()"><i class="fa fa-print"></i> Print</button>
+    </div>
+
+    <div class="col-md-12 print-header">
+        <div class="sideheader">
+            <img src="/client/images/ypk.png" alt="">
+        </div>
+        <div class="centerheader">
+            <h3>YAYASAN PENDIDIKAN KRISTEN</h3>
+            <h3>DINAS PENDIDIKAN, PERPUSTAKAAN DAN ARSIP DAERAH</h3>
+            <h3><b>SMA YPK DIASPORA KOTARAJA</b></h3>
+            <h5>Alamat: Kompleks Pendidikan Kristen Kotaraja Dalam Jayapura Kode Pos 99351</h5>
+            <h5>Email : smaypkdiaspora@gmail.com website: http://smaypkdiaspora.sch.id</h5>
+        </div>
+        <div class="sideheader">
+            <img src="/client/images/depdikbud.png" alt="">
+        </div>
+        <hr />
+    </div>
+    <div class="siswa">
+        <div class="siswa-biodata">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">PENDAFTARAN</h2>
+                    </div>
+                    <div class="card-body siswa-biodata-body">
+                        <div class="form-group">
+                            <label>NOMOR PENDAFTARAN</label>
+                            <input disabled ng-model="model.nomorpendaftaran" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Tahun Ajaran</label>
+                            <input disabled ng-model="taActive.tahunajaran" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Tanggal Daftar</label>
+                            <input disabled ng-model="model.tanggaldaftar" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">A. Biodata Siswa</h2>
+                    </div>
+                    <div class="card-body siswa-biodata-body">
+                        <div class="form-group">
+                            <label>Nama Lengkap</label>
+                            <input disabled ng-model="model.nama" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Jenis Kelamin</label>
+                            <input disabled ng-model="model.jeniskelamin" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Tempat, Tanggal Lahir</label>
+                            <input disabled ng-model="model.tempatlahir " type="text" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label>NISN </label>
+                            <input disabled ng-model="model.nisn" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>NIK SISWA </label>
+                            <input disabled ng-model="model.nik" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Jurusan Pilihan </label>
+                            <input disabled ng-model="model.jurusan" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Agama </label>
+                            <input disabled ng-model="model.agama" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Kewarganegaraan </label>
+                            <input disabled ng-model="model.kewarganegaraan" type="text" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Status Dalam Keluarga </label>
+                            <input disabled ng-model="model.statusdalamkeluarga" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Anak Ke </label>
+                            <input disabled ng-model="model.anakke" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Jumlah Saudara Kandung </label>
+                            <input disabled ng-model="model.jumlahsaudarakandung" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Alamat </label>
+                            <input disabled ng-model="model.alamat" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Nomor HP/WA </label>
+                            <input disabled ng-model="model.kontak" type="text" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Nomor Peserta Ujian </label>
+                            <input disabled ng-model="model.tidakAda" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Berat Badan </label>
+                            <input disabled ng-model="model.beratbadan" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Tinggi Badan </label>
+                            <input disabled ng-model="model.tinggibadan" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Golongan Darah </label>
+                            <input disabled ng-model="model.golongandarah" type="text" class="form-control">
+                        </div>
+                        <div class="breakpage"></div>
+                        <div class="form-group">
+                            <label>Asal Suku </label>
+                            <input disabled ng-model="model.asalsuku" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Alamat SMP </label>
+                            <input disabled ng-model="model.asalsekolah " type="text" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Status SMP </label>
+                            <input disabled ng-model="model.statussmp" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Tahun Lulus </label>
+                            <input disabled ng-model="model.tahunlulus" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Siswa </label>
+                            <input disabled ng-model="model.email" type="text" class="form-control">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">B. Biodata Orang Tua</h2>
+                    </div>
+                    <div class="card-body siswa-biodata-body">
+                        <div ng-repeat="item in model.orangtua">
+                            <h4 class="card-title">{{$index+1}}. Data {{item.jenisorangtua}}</h4>
+                            <div class="form-group">
+                                <label>Nama {{item.jenisorangtua}}</label>
+                                <input disabled ng-model="item.nama" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Tanggal Lahir {{item.jenisorangtua}}</label>
+                                <input disabled ng-model="item.tahunlahir" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>NIK {{item.jenisorangtua}}</label>
+                                <input disabled ng-model="item.nik" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Nomor HP {{item.jenisorangtua}}</label>
+                                <input disabled ng-model="tidakAda" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Pendidikan {{item.jenisorangtua}}</label>
+                                <input disabled ng-model="item.pendidikan" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Pekerjaan {{item.jenisorangtua}}</label>
+                                <input disabled ng-model="item.pekerjaan" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Pendidikan {{item.jenisorangtua}}</label>
+                                <input disabled ng-model="item.penghasilan" type="text" class="form-control">
+                            </div>
+                            <hr />
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">C. NILAI</h2>
+                    </div>
+                    <div class="card-body siswa-biodata-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="width: auto;">No</th>
+                                    <th>Mata Pelajaran</th>
+                                    <th style="width: auto;">Nilai</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td scope="row">1</td>
+                                    <td>Nilai UAS</td>
+                                    <td>{{model.nilai.uas}}</td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">2</td>
+                                    <td>Nilai Bahasa Indonesia</td>
+                                    <td>{{model.nilai.bahasaindonesia}}</td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">3</td>
+                                    <td>Nilai Bahasa Inggris</td>
+                                    <td>{{model.nilai.bahasainggris}}</td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">4</td>
+                                    <td>Nilai Matematika</td>
+                                    <td>{{model.nilai.matematika}}</td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">5</td>
+                                    <td>Nilai IPA</td>
+                                    <td>{{model.nilai.ipa}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">D. Prestasi Yang Pernah Di Raih</h2>
+                    </div>
+                    <div class="card-body siswa-biodata-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Prestasi</th>
+                                    <th>Jenis Prestasi</th>
+                                    <th>Penyelenggara</th>
+                                    <th>Tingkat</th>
+                                    <th>Tahun</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="prestasi in model.prestasi">
+                                    <td scope="row">{{$index+1}}</td>
+                                    <td>{{prestasi.namaprestasi}}</td>
+                                    <td>{{prestasi.jenisprestasi}}</td>
+                                    <td>{{prestasi.penyelenggaraan}}</td>
+                                    <td>{{prestasi.tingkat}}</td>
+                                    <td>{{prestasi.tahun}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">E. Kesejahteraan</h2>
+                    </div>
+                    <div class="card-body siswa-biodata-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Jenis</th>
+                                    <th>Nomor</th>
+                                    <th>Dari</th>
+                                    <th>Sampai</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="kesejahteraan in model.kesejahteraan">
+                                    <td scope="row">{{$index+1}}</td>
+                                    <td>{{kesejahteraan.jeniskesejahteraan}}</td>
+                                    <td>{{kesejahteraan.nomor}}</td>
+                                    <td>{{kesejahteraan.daritahun}}</td>
+                                    <td>{{kesejahteraan.sampaitahun}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">F. Beasiswa</h2>
+                    </div>
+                    <div class="card-body siswa-biodata-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Jenis</th>
+                                    <th>Penyelenggara</th>
+                                    <th>Dari</th>
+                                    <th>Sampai</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="beasiswa in model.beasiswa">
+                                    <td scope="row">{{$index+1}}</td>
+                                    <td>{{beasiswa.jenisbeasiswa}}</td>
+                                    <td>{{beasiswa.penyelenggaraan}}</td>
+                                    <td>{{beasiswa.tahunmulai}}</td>
+                                    <td>{{beasiswa.tahunselesai}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">G. Persyaratan</h2>
+                        <a data-toggle="collapse" data-target="#collapsePersyaratan" role="button"><i
+                                class="fa fa-angle-double-down"></i></a>
+                    </div>
+                    <div class="card-body siswa-biodata-body" id="collapsePersyaratan">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Persyaratan</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="berkas in model.detailpersyaratan">
+                                    <td scope="row">{{$index+1}}</td>
+                                    <td>{{berkas.persyaratan}}</td>
+                                    <td><span ng-show="berkas.berkas"> Ada</span> <span ng-show="!berkas.berkas">Tidak
+                                            Ada</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<style>
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>

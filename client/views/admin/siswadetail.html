@@ -1,0 +1,190 @@
+<!-- ============================================================== -->
+<!-- pageheader  -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="page-header">
+            <h2 class="pageheader-title"><i class="fa fa-fw fa-home"></i> Siswa </h2>
+            <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a ui-sref="admin-home" class="breadcrumb-link">Siswa</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Detail Siswa</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <app.loading busy="helper.IsBusy"></app.loading>
+    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+        <div class="card border-3 border-top border-top-primary">
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header" id="biodata">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseBiodata"
+                                aria-expanded="true" aria-controls="collapseBiodata">
+                                Biodata
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapseBiodata" class="collapse show" aria-labelledby="biodata" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label">NIS</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail"
+                                        ng-value="': '+source.nis">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label">Nama Calon Siswa</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail"
+                                        ng-value="': '+source.nama">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label">Jenis kelamin</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail"
+                                        ng-value="': '+source.jeniskelamin">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label">Kontak</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail"
+                                        ng-value="': '+source.kontak">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label">Alamat</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail"
+                                        ng-value="': '+source.alamat">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label">Tempat Tanggal Lahir</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail"
+                                        ng-value="': '+source.tempatlahir+', '+source.tanggallahir|date :'dd-MM-yyyy'">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label">Asal Sekolah</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail"
+                                        ng-value="': '+source.asalsekolah">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label">Jurusan Pilihan</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail"
+                                        ng-value="': '+source.jurusan">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="OrangTua">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseor"
+                                aria-expanded="false" aria-controls="collapseor">
+                                Data Orang Tua
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseor" class="collapse" aria-labelledby="OrangTua" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="bg-light">
+                                        <tr class="border-0">
+                                            <th>#</th>
+                                            <th></th>
+                                            <th>NIK</th>
+                                            <th>Nama</th>
+                                            <th>Tanggal Lahir</th>
+                                            <th>Pekerjaan</th>
+                                            <th>Pendidikan</th>
+                                            <th>Penghasilan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in source.orangtua">
+                                            <td>{{$index+1}}</td>
+                                            <td>{{item.jenisorangtua}}</td>
+                                            <td>{{item.nik}}</td>
+                                            <td>{{item.nama}}</td>
+                                            <td>{{item.tahunlahir}}</td>
+                                            <td>{{item.pekerjaan}}</td>
+                                            <td>{{item.pendidikan}}</td>
+                                            <td>{{item.penghasilan}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="beasiswa">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse"
+                                data-target="#collapsebeasiswa" aria-expanded="false" aria-controls="collapsebeasiswa">
+                                Persyaratan
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapsebeasiswa" class="collapse" aria-labelledby="beasiswa" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="bg-light">
+                                        <tr class="border-0">
+                                            <th>#</th>
+                                            <th>Persyaratan</th>
+                                            <th width="10%">Berkas</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in source.detailpersyaratan">
+                                            <td>{{$index+1}}</td>
+                                            <td>{{item.persyaratan}}</td>
+                                            <td><button class="btn btn-primary" ng-click="view(item)">View</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ViewDocument" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <iframe ng-src="{{File}}" width="100%" height="750px"></iframe>
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-header {
+        position: relative;
+    }
+
+
+    a {
+        margin-right: .5rem;
+    }
+</style>

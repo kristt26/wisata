@@ -1,0 +1,63 @@
+<!-- ============================================================== -->
+<!-- pageheader  -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="page-header">
+            <h2 class="pageheader-title"><i class="fa fa-fw fa-home"></i> Home </h2>
+            <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a ui-sref="siswa-pengumuman" class="breadcrumb-link">YPK</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Pengumuman</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="siswa">
+        <div class="siswa-logo">
+            <img src="/client/images/ypk.png" alt="">
+        </div>
+        <div class="siswa-header">
+            <h2>SMA YPK DIASPORA KOTARAJA</h2>
+            <h4>Jalan Lintas Liwa No 16, Kotaraja </h4>
+            <h4>KOTA JAYAPURA - PAPUA 99225</h4>
+        </div>
+        <div class="siswa-body" ng-if="pengumuman">
+            <h5 ng-show="model.biodata.status==='Lulus'">KAMI MENGUCAPKAN SELAMAT</h5>
+            <h5> KEPADA CALON SISWA ATAS NAMA :</h5>
+            <h2 id="nama">{{siswa.biodata.nama}}</h2>
+            <h6>Dengan Nomor Pendaftaran</h6>
+            <h2 id="nomor">{{siswa.biodata.nomorpendaftaran}}</h2>
+            <h6>ANDA DINYATAKAN </h6>
+            <h1 class="status bg-danger" ng-show="model.biodata.status!=='Lulus'">( TIDAK LULUS / TIDAK DITERIMA )
+            </h1>
+            <h1 class="status bg-success" ng-show="model.biodata.status==='Lulus'">( LULUS / DITERIMA )
+            </h1>
+        </div>
+        <div class="siswa-body" ng-if="belumAdaPengumuman">
+            <h1>MAAF,</h1>
+            <h1>BELUM ADA PENGUMUMAN</h1>
+        </div>
+
+    </div>
+
+</div>
+
+
+<style>
+    .siswa {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+    }
+
+    #nama {
+        text-transform: uppercase;
+        text-decoration: underline;
+        margin: 30px;
+    }
+</style>

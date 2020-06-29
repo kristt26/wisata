@@ -1,0 +1,13 @@
+<div style="margin-bottom: 10px;" ng-init="Init()">
+    <div ng-show="$ctrl.showview=='false'" class="input-group mb-3">
+        <input name="{{'data'+$ctrl.name}}" id="{{'data'+$ctrl.name}}" style="display: none;" type="file">
+        <input name="dataInput" ng-model="$ctrl.filename" type="text" class="form-control" placeholder="Pilih File">
+        <div class="input-group-append">
+            <a class="input-group-text" ng-click="openFile()">File</a>
+            <a class="input-group-text" ng-show="$ctrl.filename" target="_blank"
+                href="/client/berkas/{{$ctrl.filename}}"><i class="fa fa-download"></i></a>
+        </div>
+    </div>
+    <img ng-show="$ctrl.showview=='true'" ng-click="openFile()" style="width:100%; height: {{$ctrl.height}}px;"
+        data-ng-src="data:image/png;base64,{{$ctrl.model}}" src="{{$ctrl.src}}" />
+</div>

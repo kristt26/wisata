@@ -1,0 +1,127 @@
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="page-header">
+            <h2 class="pageheader-title"><i class="fa fa-fw fa-home"></i> Pengumuman </h2>
+            <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a ui-sref="admin-home" class="breadcrumb-link">Admin</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Pengumuman</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <app.loading busy="helper.IsBusy"></app.loading>
+    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+        <div class="card border-3 border-top border-top-primary">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <h3 class="text-muted">Data Pengumuman</h3>
+                    <div> <a class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal" href=""
+                            ng-click="model={type:'pengumuman', publish:true};title='Tambah Pengumuman'"><i
+                                class="fa fa-plus-square fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-3">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="bg-light">
+                            <tr class="border-0">
+                                <th rowspan="2">#</th>
+                                <th rowspan="2">Tanggal</th>
+                                <th rowspan="2">Judul</th>
+                                <th rowspan="2">Publish</th>
+                                <th rowspan="2">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr ng-repeat="item in source | filter:{type:'pengumuman'}">
+                                <td>{{$index+1}}</td>
+                                <td>{{item.created|date:'dd-MM-yyyy hh:ss'}}</td>
+                                <td>{{item.title}}</td>
+                                <td>
+                                    <div class="checkbox-custom">
+                                        <label>
+                                            <input ng-model="item.publish" disabled type="checkbox">
+                                            <b></b>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td nowrap>
+                                    <div class="tdaction justify-content-start">
+                                        <a class="btn btn-outline-warning" href="" data-toggle="modal"
+                                            data-target="#exampleModal" ng-click="edit(item)"><i
+                                                class="fa fa-edit fa-1x"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form ng-submit="save(model)">
+                    <div class="form-group">
+                        <label class="col-form-label">Judul</label>
+                        <input ng-model="model.title" required class="form-control">
+                    </div>
+                    <div class="d-inline-flex" style="margin-bottom: 15px;">
+                        <label style="margin-top: 4px; margin-right: 20px;">Publish</label>
+                        <div class="checkbox-custom">
+                            <label>
+
+                                <input ng-model="model.publish" type="checkbox">
+                                <b></b>
+
+                            </label>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <app.htmleditor model="model.content"></app.htmleditor>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" ng-disabled="!model" class="btn btn-primary"><i
+                                class=" fa fa-spinner fa-spin" ng-show="helper.IsBusy"></i>Simpan </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-header {
+        position: relative;
+    }
+
+
+    a {
+        margin-right: .5rem;
+    }
+
+    td,
+    th {
+        text-align: center;
+    }
+</style>

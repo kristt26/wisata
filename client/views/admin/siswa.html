@@ -1,0 +1,162 @@
+<!-- ============================================================== -->
+<!-- pageheader  -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="page-header">
+            <h2 class="pageheader-title"><i class="fa fa-fw fa-home"></i> Siswa </h2>
+            <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a ui-sref="admin-home" class="breadcrumb-link">Siswa</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Siswa</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <app.loading busy="helper.IsBusy"></app.loading>
+    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+        <div class="card border-3 border-top border-top-primary">
+            <div class="card-body">
+                <h3 class="text-muted">Data Siswa</h3>
+                <ul class="nav justify-content-end">
+                    <li id="download"><a class="btn btn-outline-success" href="" ng-click="download()">Export To
+                            Excell</a></li>
+                    <li>
+                        <input ng-model="cari" type="text" class="form-control">
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body p-3">
+                <div class="table-responsive">
+                    <table class="table" id="tableSiswa">
+                        <thead class="bg-light">
+                            <tr class="border-0">
+                                <th>#</th>
+                                <th>Nomor Pendaftaran</th>
+                                <th>NIS</th>
+                                <th>Nama</th>
+                                <th>Jenis Kelamin </th>
+                                <th>Tempat, Tanggal Lahir</th>
+                                <th>Jurusan</th>
+                                <th>Alamat</th>
+                                <th>Status Lulus</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in source | filter : cari">
+                                <td>{{$index+1}}</td>
+                                <td>{{stringnumber(item.idcalonsiswa)}}</td>
+                                <td>{{item.nis}}</td>
+                                <td>{{item.nama}}</td>
+                                <td>{{item.jeniskelamin}}</td>
+                                <td>{{item.tempatlahir}}, {{item.tanggallahir|date :'dd-MM-yyyy'}} </td>
+                                <td>{{item.jurusan}}</td>
+                                <td>{{item.alamat}}</td>
+                                <td>{{item.status}}</td>
+                                <td nowrap>
+                                    <div class="tdaction justify-content-start">
+                                        <a class="btn btn-outline-warning" href="" data-toggle="modal"
+                                            data-target="#exampleModal" ng-click="edit(item)"><i
+                                                class="fa fa-edit fa-1x"></i></a>
+                                        <a class="btn btn-outline-secondary" ng-click="delete(item)"><i
+                                                class="fa fa-trash fa-1x"></i></a>
+                                        <a class="btn btn-outline-primary" ng-click="detail(item)"><i
+                                                class="fa fa-list fa-1x"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form ng-submit="save(model)">
+                    <div class="form-group">
+                        <label class="col-form-label">Nomor Peserta</label>
+                        <input ng-model="model.idcalonsiswa" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">NIS</label>
+                        <input ng-model="model.nis" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Nama</label>
+                        <input ng-model="model.nama" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Tempat Lahir</label>
+                        <input ng-model="model.tempatlahir" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Tanggal Lahir</label>
+                        <input ng-model="model.tanggallahir" type="date" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Jenis Kelamin</label>
+                        <select class="form-control" ng-model="model.jeniskelamin"
+                            ng-options="item as item for item in helper.genders">
+                        </select>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label class="col-form-label">Mata Pelajaran Uji Pilihan</label>
+                        <select class="form-control" ng-model="model.kelas"
+                            ng-options="item as item for item  in helper.kelas">
+                        </select>
+                    </div> -->
+                    <div class="form-group">
+                        <label class="col-form-label">Jurusan</label>
+                        <select class="form-control" ng-model="model.jurusan"
+                            ng-options="item as item for item  in helper.jurusan">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Alamat</label>
+                        <textarea ng-model="model.alamat" class="form-control" id="message-text"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Status Lulus</label>
+                        <select class="form-control" ng-model="model.status"
+                            ng-options="item as item for item  in helper.statusLulus">
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary"><i class=" fa fa-spinner fa-spin"
+                                ng-show="helper.IsBusy"></i>Simpan</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-header {
+        position: relative;
+    }
+
+
+    a {
+        margin-right: .5rem;
+    }
+</style>

@@ -1,0 +1,33 @@
+<div class="email-confirm">
+    <div class="email-body">
+        <div class="card" ng-show="isSuccess">
+            <div class="card-header">
+                <h2>Confirm Email Success</h2>
+            </div>
+            <div class="card-body">
+                <h4>Email Anda Berhasil Di Konfirmasi</h4>
+                <h4>Silahkan Login</h4>
+                <div class="confirm-login">
+                    <a ui-sref="login" class="btn btn-success">Login</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card" ng-show="isError">
+            <div class="card-header">
+                <h2>Info</h2>
+            </div>
+            <div class="card-body">
+                <h4>Email Anda Telah Di Konfirmasi</h4>
+                <h4>Silahkan Login</h4>
+                <div class="confirm-login">
+                    <a ui-sref="login" class="btn btn-warning">Login</a>
+                </div>
+            </div>
+        </div>
+
+        <i ng-show="!isSuccess && !isError" class="fa fa-spinner fa-spin fa-4x text-white"></i>
+
+    </div>
+</div>

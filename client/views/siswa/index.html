@@ -1,0 +1,74 @@
+<div class="dashboard-main-wrapper">
+    <div class="dashboard-header">
+        <nav class="navbar navbar-expand-lg bg-white fixed-top">
+            <div class="img-logo"><img src="client/images/ypk.png" alt=""></div>
+            <a class="navbar-brand" ui-sref="adminsuper-home">
+                <h5>SMA YPK DIASPORA</h5>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto navbar-right-top">
+                    <li class="nav-item dropdown nav-user">
+                        <userlogin></userlogin>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="nav-left-sidebar bg-dark">
+        <div class="menu-list">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav flex-column">
+                        <li class="nav-item">
+                            <a ui-sref="guest-home" class="nav-link" href="#" aria-expanded="false" data-target="#"
+                                aria-controls="">
+                                <i class="fa fa-fw fa-home"></i>Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" ui-sref="siswa-profile"><i class="fa fa-fw fa-calendar"></i>Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" ui-sref="siswa-edit"><i class="fa fa-fw fa-calendar"></i>Edit
+                                Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" ui-sref="siswa-pengumuman"><i
+                                    class="fa fa-fw fa-calendar"></i>Pengumuman</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content ">
+                <ui-view></ui-view>
+            </div>
+
+        </div>
+        <app.footer></app.footer>
+    </div>
+
+
+</div>
+
+
+
+<style>
+    .dashboard-content {
+        min-height: 85vh;
+    }
+</style>

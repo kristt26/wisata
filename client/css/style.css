@@ -1,0 +1,312 @@
+.form-control {
+  border-radius: 5px;
+}
+
+.card {
+  border-radius: 0;
+}
+
+.siswa {
+  width: 100%;
+  text-align: center;
+}
+
+.siswa .siswa-logo img {
+  width: 150px;
+  height: 150px;
+}
+
+.siswa .siswa-header {
+  margin-top: 60px;
+}
+
+.siswa .siswa-body {
+  margin: 60px;
+}
+
+.siswa .siswa-body h1 {
+  margin: 30px;
+  text-transform: uppercase;
+}
+
+.siswa .siswa-body .status {
+  padding: 10px;
+  color: white;
+  background-color: greenyellow;
+}
+
+.siswa .siswa-download {
+  margin-top: 40px;
+}
+
+.siswa .siswa-download a {
+  width: 30%;
+  padding: 20px;
+}
+
+.siswa .siswa-biodata {
+  width: 100%;
+}
+
+.siswa .siswa-biodata .siswa-biodata-body {
+  width: 100%;
+  text-align: start;
+}
+
+.siswa .siswa-biodata .siswa-biodata-body .form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-left: 10px;
+}
+
+.siswa .siswa-biodata .siswa-biodata-body .form-group label {
+  width: 30%;
+  text-align: start;
+}
+
+.siswa .siswa-biodata .siswa-biodata-body .form-group input {
+  width: 60%;
+}
+
+.navbar-brand {
+  font-size: 18px;
+}
+
+.img-logo img {
+  height: 50px;
+  width: 50px;
+}
+
+td a {
+  margin-right: 0px;
+}
+
+td .btn {
+  font-size: 14px;
+  padding: 4px 7px;
+  border-radius: 2px;
+  margin-left: 5px;
+}
+
+.checkbox-custom {
+  position: relative;
+}
+
+.checkbox-custom input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-custom input[type="checkbox"] ~ b {
+  cursor: pointer;
+  outline: 0;
+  position: relative;
+  display: inline-block;
+  margin: 6px 1px 0;
+  background-color: #ffffff;
+  border: 2px solid #acabab;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  line-height: 0.5;
+  text-align: center;
+  font-size: 20px;
+  color: #3ff691;
+}
+
+.checkbox-custom input[type="checkbox"]:checked ~ b:after {
+  content: "\2713";
+  margin-top: -15px;
+}
+
+.stepper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+  height: 50px;
+  width: 50%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.stepper .stepper-item {
+  width: 20%;
+  margin: 2px;
+  font-size: 15px;
+  height: 15px;
+  width: 100%;
+}
+
+.stepper .stepper-item button {
+  border-radius: 5px;
+  background: #e0e0e0;
+  -webkit-box-shadow: 9px 9px 18px #d4d3d3;
+          box-shadow: 9px 9px 18px #d4d3d3;
+  width: 100%;
+  height: 100%;
+}
+
+.stepper .stepper-selected {
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 18px;
+}
+
+.stepper .stepper-selected button {
+  background-color: #25d5f2 !important;
+}
+
+.stepper .stepper-complete {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.stepper .stepper-complete button {
+  background-color: #2ec551;
+}
+
+.listblog a {
+  font-size: 15px;
+}
+
+.listblog p {
+  font-size: 11px;
+}
+
+.fa-spinner {
+  margin: 2px;
+}
+
+.page-body {
+  min-height: 75vh;
+}
+
+@media screen and (max-width: 600px) {
+  .siswa {
+    min-height: 95vh;
+    padding: 20px;
+    text-align: center;
+  }
+  .siswa .siswa-logo img {
+    width: 100px;
+    height: 100px;
+  }
+  .siswa .siswa-header {
+    margin-top: 30px;
+  }
+  .siswa .siswa-header h2 {
+    font-size: 18px;
+  }
+  .siswa .siswa-header h4 {
+    font-size: 14px;
+  }
+  .siswa .siswa-body {
+    margin: 30px;
+  }
+  .siswa .siswa-body h1 {
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+  .siswa .siswa-download {
+    margin-top: 5px;
+    padding: 20px;
+  }
+  .siswa .siswa-download a {
+    width: 100%;
+    padding: 20px;
+  }
+  td a {
+    margin-right: 0px;
+  }
+  td .btn {
+    font-size: 14px;
+    padding: 4px 7px;
+    border-radius: 2px;
+  }
+  .stepper {
+    width: 90%;
+  }
+}
+
+.print-header {
+  display: none;
+}
+
+@media print {
+  .nav-left-sidebar,
+  .page-header,
+  #footer,
+  .dashboard-header {
+    display: none !important;
+  }
+  .siswa {
+    display: block;
+  }
+  .dashboard-wrapper {
+    margin-left: 0px;
+  }
+  .print-header {
+    border-bottom: 1px black solid;
+    padding-bottom: 10px;
+    margin-top: -90px;
+    margin-bottom: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .print-header .sideheader {
+    width: 10%;
+  }
+  .print-header .sideheader img {
+    width: 100%;
+  }
+  .print-header .centerheader {
+    width: 80%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .print-header .centerheader h3, .print-header .centerheader h5 {
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .print-header .centerheader h5 {
+    font-style: italic;
+    padding: 0;
+    line-height: 15px !important;
+  }
+  .breakpage {
+    page-break-after: always;
+  }
+}
+/*# sourceMappingURL=style.css.map */

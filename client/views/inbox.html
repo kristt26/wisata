@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="page-header">
+            <h2 class="pageheader-title"><i class="fa fa-fw fa-home"></i> Inbox </h2>
+            <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="" class="breadcrumb-link">WPKS</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Inbox</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3>User</h3>
+            </div>
+            <div class="card-body" style=" height: 65vh; overflow-y: scroll;">
+                <div class="border-bottom" ng-repeat="user in channels">
+                    <div>
+                        <img class="direct-chat-img" src="assets/images/avatar-1.jpg"
+                            ng-src="images/avatar/{{user.avatar}}" alt="message user image">
+                    </div>
+                    <div>
+                        <a href="" ng-click="selectChannel(user)">
+                            <h5>{{user.userName}}</h5>
+                        </a>
+                        <p>{{user.role}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 ">
+        <div class="card ">
+            <div class="card-header">
+                <h3 class="card-title">{{channel.userName}}</h3>
+            </div>
+            <div class="card-body" style="height: 60vh; overflow-y: scroll;">
+                <div class="direct-chat-msg"
+                    ng-class="{right: item.idpengirim!=profile.iduser,left: item.idpengirim==profile.iduser}"
+                    ng-repeat="item in channel.chats">
+                    <div class="direct-chat-infos clearfix">
+                        <span class="direct-chat-name float-left">{{item.pengirim}}</span>
+                        <span class="direct-chat-timestamp float-right">{{item.tgl_pesan| date:'dd MMM hh:mm'}}</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="assets/images/avatar-1.jpg" ng-src="images/avatar/{{item.avatar}}"
+                        alt="message user image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                        {{item.isi_pesan}}
+                    </div>
+                    <!-- /.direct-chat-text -->
+                </div>
+            </div>
+            <div class="card-footer">
+                <form action="#" method="post">
+                    <div class="input-group">
+                        <input type="text" ng-model="message" name="message" placeholder="Type Message ..."
+                            class="form-control">
+                        <span class="input-group-append">
+                            <button ng-click="send(channel,message)" type="button" class="btn btn-warning">Send</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<style>
+    .right {
+        margin-left: 20%;
+    }
+
+
+    .left {
+        margin-right: 20%;
+    }
+</style>
