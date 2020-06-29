@@ -9,7 +9,7 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"angular": "^1.7.9",
+		"angular": "^1.8.0",
 		"@uirouter/angularjs": "^1.0.22",
 		"angular-datatables": "^0.6.2",
 		"angular-local-storage": "^0.7.1",
