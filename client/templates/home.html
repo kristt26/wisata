@@ -1,0 +1,91 @@
+<div title="Home" id="page1" class="row">
+
+    <div padding="true" class="has-header"
+        style="background-image: url('./client/img/main.jpg'); no-repeat center; background-size: cover;">
+        <form id="home-form2" class="">
+            <label class="item item-select itemtrans light" id="home-select1" style="color:#000000">
+                <span class="input-label light">Kategori</span>
+                <select style="background-color:rgba(255, 255, 255,0.1)" ng-class="itemtrans"
+                    ng-options="item as item.nama for item in Categories" ng-model="selectedOption">
+                    <option value="">-- Pilih --</option>
+
+
+                </select>
+            </label>
+            <label class="item item-input itemtrans">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input style="color:#000000" ng-model="cari" type="search" placeholder="Cari">
+            </label>
+        </form>
+
+
+        <div ng-repeat="item in selectedOption">
+            <div class="calm list card itemtrans" style="padding:15px">
+                <div style="margin: 0px; line-height: 250px; text-align: center;">
+                    <img class="col-md-12" style="height:100%"
+                        src="./client/images/d722f2a14a84b7ad8053262f61a6106b_XL.jpg" />
+                </div>
+                <div id="home-markdown1" class="itemtrans">
+                    <!-- <ion-item class="item item-button-right">
+                        <strong>{{item.nama}}</strong>
+                        <div class="buttons ">
+                            menu.details({id:{{item.Id}}})
+                            <a ui-sref="" id="home-button3" class="ion-eye"></a>
+                        </div>
+                    </ion-item> -->
+
+                    <!-- <div style="font-size:10px">
+                        <ion-item class="item-stable" ng-click="toggleGroup(item)" ng-class="{active: isGroupShown()}">
+                            <i class="icon" ng-class="isGroupShown() ? 'ion-minus' : 'ion-ios-chatboxes-outline'"></i>
+                            &nbsp;
+                            komentar
+                        </ion-item>
+                        <ion-item class="item-accordion itemtrans" ng-show="isGroupShown(item)">
+                            <div class="item item-input-inset">
+                                <label class="item item-input">
+                                    <textarea placeholder="Comments" ng-model="message"></textarea>
+
+                                </label>
+                                <button ng-click="AddNew(item,message)" id="home-button3"
+                                    class="button-clear ion-android-send"></button>
+                            </div>
+                            <div class="comments" ng-repeat="comment in item.komentar" | orderBy:'date'"
+                                ng-if="comment.idobjek==item.idobjek">
+                                <div class="calm card">
+                                    <div class="item item-button-right calm">
+                                        {{comment.nama}}
+                                        <div style="font-size:x-small" class="item item-text-wrap">{{comment.koementar}}
+                                        </div>
+                                    </div>
+                                    <div ng-repeat="item1 in Comments | orderBy:'DateTimeComment'"
+                                        ng-if="( item1.ParentId != 0 &&  comment.Id==item1.ParentId)">
+                                        <div class="calm" style="text-align:right">
+                                            <div style="font-size:x-small" class="item item-text-wrap">
+                                                <h4 class="calm">{{item1.UserName}}</h4>{{item1.CommentText}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item item-input-inset">
+                                        <label class="item item-input">
+                                            <textarea placeholder="Replay" ng-model="message1"></textarea>
+                                        </label>
+                                        <button ng-click="AddReplay(item,comment,message1)" id="home-button3"
+                                            class="button-clear ion-android-send"></button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </ion-item>
+                    </div> -->
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<ion-view title="Details" id="page5" ng-init="viewmap()">
+    <ion-content padding="false" class="has-header" style="background-image: url('img/detail.jpg'); no-repeat: center; background-size: cover;">
+        <ion-tabs class="tabs-positive tabs-icon-top itemtrans" style="padding:10px" >
+            <ion-tab title="Description" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
+                <ion-content class="itemlight itemtrans" style="margin:50px 10px 10px 10px;padding:15px; text-align:justify">
+                    <p style="color:black; font-size:large"> {{Details.Keterangan}}</p> 
+                </ion-content>
+            </ion-tab>
+            <ion-tab title="Galeri" icon-on="ion-ios-clock" icon-off="ion-ios-clock-outline">
+                <div class="list card itemtrans" id="home-card23" >
+                    <div style="margin: 0px; line-height: 250px; text-align: center">
+                        <ion-content scroll="false">
+                            <ion-slides options="options" slider="data.slider" >
+                                <ion-slide-page ng-repeat="item in Details.Pictures">
+                                    <img  src="data:{{item.ApplicationType}};base64,{{item.Data}}" />
+                                </ion-slide-page>
+                               
+                            </ion-slides>
+                        </ion-content>
+                    </div>
+                </div>
+            </ion-tab>
+            <ion-tab title="Map" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline" ng-click="initMap()" >
+               
+                <div  id="map1"></div>
+            </ion-tab>
+        </ion-tabs>
+    </ion-content>
+</ion-view>

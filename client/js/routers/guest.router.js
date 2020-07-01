@@ -10,7 +10,7 @@ angular.module('guest.router', [ 'ui.router' ]).config(function($stateProvider, 
 			url: '/home',
 			parent: 'guest',
 			controller: 'guestHomeController',
-			templateUrl: './client/views/guest/home.html'
+			templateUrl: './client/templates/home.html'
 		})
 		.state('guest-daftar', {
 			url: '/daftar',

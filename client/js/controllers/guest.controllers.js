@@ -7,17 +7,21 @@ angular
 	.controller('daftarController', daftarController)
 	.controller('detailController', detailController);
 
-function guestController($scope, $state, AuthService, TahunAjaranService, CalonSiswaService) {}
+function guestController($scope, $state, AuthService, TahunAjaranService, CalonSiswaService) { }
 
 function detailController($scope, $stateParams, $sce, ContentService) {
-	ContentService.getById($stateParams.id).then((result) => {
-		var info = angular.copy(result);
-		info.content = $sce.trustAsHtml(info.content);
-		$scope.model = info;
-	});
+	// ContentService.getById($stateParams.id).then((result) => {
+	// 	var info = angular.copy(result);
+	// 	info.content = $sce.trustAsHtml(info.content);
+	// 	$scope.model = info;
+	// });
 }
 
 function guestHomeController($scope, ContentService, $sce, $state, TahunAjaranService, CalonSiswaService, AuthService) {
+	$scope.Categories = [];
+	ContentService.get().then((result) => {
+		$scope.Categories = angular.copy(result);
+	});
 	// $scope.daftarComplete = false;
 	// $scope.showMenu = false;
 
@@ -29,7 +33,7 @@ function guestHomeController($scope, ContentService, $sce, $state, TahunAjaranSe
 	// 		info.content = $sce.trustAsHtml(info.content);
 	// 		$scope.selectedContent = info;
 	// 	}
-		
+
 
 	// 	TahunAjaranService.get().then((result) => {
 	// 		$scope.taActive = result.find((x) => x.status);

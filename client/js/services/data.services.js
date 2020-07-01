@@ -6,7 +6,7 @@ angular
 	.factory('TahunAjaranService', TahunAjaranService);
 
 function ContentService($http, $q, message, AuthService, helperServices) {
-	var url = helperServices.url + '/api/content';
+	var url = helperServices.url + '/api/kategori';
 	var service = {
 		Items: []
 	};
