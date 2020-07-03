@@ -309,6 +309,69 @@ td .btn {
     page-break-after: always;
   }
 }
+#page1{
+  overflow: scroll;
+  height: 80vh;
+}
+.has-header{
+  width: 100%;
+}
+.element .style {
+  width: 50% !important;
+}
+.item {
+  border-color: #ddd;
+  background-color: #fff;
+  color: #444;
+  position: relative;
+  z-index: 2;
+  display: block;
+  margin: -1px;
+  padding: 16px;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 16px;
+}
+button, input, label, select, textarea {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.42857;
+}
+.item-select:after {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  margin-top: -3px;
+  width: 0;
+  height: 0;
+  border-top: 5px solid;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  color: #999;
+  content: "";
+  pointer-events: none;
+}
+.item-select select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0 48px 0 16px;
+  max-width: 65%;
+  border: none;
+  background: #fff;
+  color: #333;
+  text-indent: .01px;
+  text-overflow: '';
+  white-space: nowrap;
+  font-size: 14px;
+  cursor: pointer;
+  direction: rtl;
+}
+
 /* .angular-google-map-container { 
   height: 100%; 
 } */

@@ -14,12 +14,14 @@ class Objek extends \Restserver\Libraries\REST_Controller
 
     public function Ambil_get()
     {
-        $output = $this->Objek_model->select(null);
+        $output = $this->Objek_model->selectAll(null);
         if($output){
             $this->response($output, REST_Controller::HTTP_OK);
         }
         
     }
+
+
     public function simpan_post()
     {
         $this->load->library('Authorization_Token');

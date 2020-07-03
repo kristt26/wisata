@@ -2,28 +2,41 @@
 
 class Gambar_model extends CI_Model
 {
-    public function select($id)
+    public function select()
     {
-        if($id){
-            $this->db->where('idobjek', $id);
-            $result = $this->db->get('gambar');
-            $item = $result->result_array();
-            return $item[0];
-        }else{
-            $result = $this->db->get('gambar');
-            return $result->result_array();
+        $resultObject = $this->db->get('objek');
+        $Data['objek'] = array();
+        foreach ($resultObject->result_array() as $key1 => $value1) {
+            $itemObjek = [
+                'idobjek' => $value1['idobjek'],
+                'nama' => $value1['nama'],
+                'longitude' => $value1['longitude'],
+                'latitude' => $value1['latitude'],
+                'keterangan' => $value1['keterangan'],
+                'gambar' => '',
+                'komentar' => array(),
+            ];
+            $this->db->where('idobjek', $value1['idobjek']);
+            $resultGambar = $this->db->get('gambar');
+            $itemObjek['gambar'] = $resultGambar->result_array();
+
+            $this->db->where('idobjek', $value1['idobjek']);
+            $resultkomentar = $this->db->get('komentar');
+            $itemObjek['komentar'] = $resultkomentar->result_array();
+            array_push($Data['objek'], $itemObjek);
         }
+        return $Data['objek'];
     }
     public function insert($data)
     {
         $item = [
             'idobjek'=>$data['idobjek'],
-            'file'=> $data['file'],
+            'file'=> $data['Berkas'],
             'keterangan'=> $data['keterangan']
         ];
         $result = $this->db->insert('gambar', $item);
-        $data['idgambar']= $this->db->insert_id();
-        return $data;
+        $item['idgambar']= $this->db->insert_id();
+        return $item;
     }
     public function update($data)
     {

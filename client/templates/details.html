@@ -1,29 +1,56 @@
-<ion-view title="Details" id="page5" ng-init="viewmap()">
-    <ion-content padding="false" class="has-header" style="background-image: url('img/detail.jpg'); no-repeat: center; background-size: cover;">
-        <ion-tabs class="tabs-positive tabs-icon-top itemtrans" style="padding:10px" >
-            <ion-tab title="Description" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
-                <ion-content class="itemlight itemtrans" style="margin:50px 10px 10px 10px;padding:15px; text-align:justify">
-                    <p style="color:black; font-size:large"> {{Details.Keterangan}}</p> 
-                </ion-content>
-            </ion-tab>
-            <ion-tab title="Galeri" icon-on="ion-ios-clock" icon-off="ion-ios-clock-outline">
-                <div class="list card itemtrans" id="home-card23" >
-                    <div style="margin: 0px; line-height: 250px; text-align: center">
-                        <ion-content scroll="false">
-                            <ion-slides options="options" slider="data.slider" >
-                                <ion-slide-page ng-repeat="item in Details.Pictures">
-                                    <img  src="data:{{item.ApplicationType}};base64,{{item.Data}}" />
-                                </ion-slide-page>
-                               
-                            </ion-slides>
-                        </ion-content>
+<div title="Home" id="page1" class="row">
+    <div padding="true" class="has-header">
+        <div class="calm list card itemtrans" style="padding:15px">
+            <div class="tabbable" id="tabs-700749">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="" data-toggle="tab" data-target="#tab1">Description</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" data-toggle="tab" data-target="#tab2">Galeri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" data-toggle="tab" data-target="#tab3">Map</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab1">
+                        <p style="color: black;">
+                            {{model.keterangan}}
+                        </p>
+                    </div>
+                    <div class="tab-pane" id="tab2">
+                        <div class="col-md-12" style="margin-top: 20px;">
+                            <div class="row">
+                                <div class="col-md-4" ng-repeat="item in model.gambar">
+                                    <div class="card">
+                                        <img class="card-img-top" alt="Bootstrap Thumbnail First"
+                                            src="./client/berkas/{{item.file}}" height="400px" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab3">
+                        <div id="map"></div>
                     </div>
                 </div>
-            </ion-tab>
-            <ion-tab title="Map" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline" ng-click="initMap()" >
-               
-                <div  id="map1"></div>
-            </ion-tab>
-        </ion-tabs>
-    </ion-content>
-</ion-view>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- <script>
+    // Initialize and add the map
+    function initMap() {
+        // The location of Uluru
+        var uluru = { lat: -25.344, lng: 131.036 };
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+            document.getElementById('map'), { zoom: 4, center: uluru });
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({ position: uluru, map: map });
+    }
+</script> -->
+<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAR1DVTQS77gTqybI9C10eZeJx98Ty_PUo&callback=initMap"></script> -->

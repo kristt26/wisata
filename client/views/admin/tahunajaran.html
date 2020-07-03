@@ -4,13 +4,13 @@
 <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="page-header">
-            <h2 class="pageheader-title"><i class="fa fa-fw fa-home"></i> Tahun Ajaran </h2>
+            <h2 class="pageheader-title"><i class="fa fa-fw fa-home"></i> Kategori </h2>
             <div class="page-breadcrumb">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a ui-sref="admin-home" class="breadcrumb-link">Tahun Ajaran</a>
+                        <li class="breadcrumb-item"><a ui-sref="admin-home" class="breadcrumb-link">Kategori</a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">Tahun Ajaran</li>
+                        <li class="breadcrumb-item active" aria-current="page">Kategori</li>
                     </ol>
                 </nav>
             </div>
@@ -21,11 +21,11 @@
         <div class="card border-3 border-top border-top-primary">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
-                    <h3 class="text-muted">Data Tahun Ajaran</h3>
+                    <h3 class="text-muted">Data Kategori</h3>
                     <ul class="nav justify-content-end">
                         <li>
                             <a class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal" href=""
-                                ng-click="model=null;title='Tambah Tahun Ajaran'"><i
+                                ng-click="model=null;title='Tambah Kategori'"><i
                                     class="fa fa-plus-square fa-2x"></i></a>
                         </li>
                     </ul>
@@ -38,39 +38,16 @@
                         <thead class="bg-light">
                             <tr class="border-0">
                                 <th>#</th>
-                                <th>Tahun Ajaran</th>
-                                <th>Semester</th>
-                                <th>Dibuka</th>
-                                <th>Ditutup</th>
-                                <th>Status Pengumuman Pendafataran</th>
-                                <th>Status</th>
+                                <th>Kategori</th>
+                                <th>Keterangan</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="item in source">
                                 <td>{{$index+1}}</td>
-                                <td>{{item.tahunajaran}}/{{item.tahunajaran+1}}</td>
-                                <td>{{item.semester}}</td>
-                                <td>{{item.tanggalbuka|date:'dd-MM-yyyy'}}</td>
-                                <td>{{item.tanggaltutup|date:'dd-MM-yyyy'}}</td>
-                                <td>
-                                    <div class="checkbox-custom">
-                                        <label>
-                                            <input ng-model="item.pengumuman" disabled type="checkbox">
-                                            <b></b>
-                                        </label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="checkbox-custom">
-                                        <label>
-                                            <input ng-model="item.status" disabled type="checkbox">
-                                            <b></b>
-                                        </label>
-                                    </div>
-                                </td>
-
+                                <td>{{item.nama}}</td>
+                                <td>{{item.keterangan}}</td>
                                 <td>
                                     <ul class="nav justify-content-end">
                                         <li>
@@ -92,7 +69,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -108,44 +84,13 @@
             <div class="modal-body">
                 <form ng-submit="save(model)">
                     <div class="form-group">
-                        <label class="col-form-label">Tahun</label>
-                        <input ng-model="model.tahunajaran" type="text" class="form-control">
+                        <label class="col-form-label">Kategori</label>
+                        <input ng-model="model.nama" type="text" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label class="col-form-label">Semester</label>
-                        <select class="form-control" ng-model="model.semester"
-                            ng-options="item as item for item  in helper.semester">
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-form-label">Tanggal Dibuka</label>
-                        <input ng-model="model.tanggalbuka" type="date" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label">Tanggal Ditutup</label>
-                        <input ng-model="model.tanggaltutup" type="date" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label">Buka Pengumuman Pendaftaran</label>
-                        <div class="checkbox-custom">
-                            <label>
-                                <input ng-model="model.pengumuman" type="checkbox">
-                                <b></b>
-                            </label>
-
-                        </div>
-                    </div>
-
-                    <div class="d-inline-flex" style="margin-bottom: 15px;">
-                        <label style="margin-top: 4px; margin-right: 20px;">Status</label>
-                        <div class="checkbox-custom">
-                            <label>
-                                <input ng-model="model.status" type="checkbox">
-                                <b></b>
-                            </label>
-
-                        </div>
+                        <label class="col-form-label">Keterangan</label>
+                        <textarea class="form-control" ng-model="model.keterangan">
+                        </textarea>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

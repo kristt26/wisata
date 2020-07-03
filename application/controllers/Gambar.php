@@ -27,7 +27,7 @@ class Gambar extends \Restserver\Libraries\REST_Controller
         if ($is_valid_token['status'] === true) {
             $this->load->library('my_lib');
             $POST = json_decode($this->security->xss_clean($this->input->raw_input_stream), true);
-            if (isset($POST['idkelulusan'])) {
+            if (isset($POST['idgambar'])) {
                 if (isset($POST['file'])) {
                     $itemkelulusan = $this->Gambar_model->select($POST['idkelulusan']);
                     $dirFile = './client/berkas/' . $itemkelulusan['Berkas'];

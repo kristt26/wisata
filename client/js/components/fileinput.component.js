@@ -1,19 +1,16 @@
 angular.module('app.fileinput.conponent', []).component('fileinput', {
 	bindings: {
 		model: '=',
-		filename: '=',
-		persyaratan: '=',
-		showview: '@',
-		height: '@',
-		width: '@',
-		name: '=',
-		src: '@'
+		showview: '<',
+		height: '<',
+		width: '<',
+		idname: '<',
+		src: '<'
 	},
-	controller: function($scope, CalonSiswaService) {
-		$scope.$ctrl.src = '';
-
+	controller: function($scope) {
+		$scope.fileName = 'test';
 		setTimeout((x) => {
-			var inp = document.getElementById('data' + $scope.$ctrl.name);
+			var inp = document.getElementById($scope.$ctrl.idname);
 			inp.addEventListener('change', function(e) {
 				var files = e.target.files;
 				var f = files[0];
@@ -23,13 +20,9 @@ angular.module('app.fileinput.conponent', []).component('fileinput', {
 					reader.readAsDataURL(f);
 					reader.onload = function(xx) {
 						$scope.$apply((x) => {
+							$scope.$ctrl.fileName = f.name;
 							var data = reader.result.split(',');
-							//$scope.$ctrl.model = data[1];
-							$scope.$ctrl.persyaratan.file = data[1];
-							CalonSiswaService.addBerkas($scope.$ctrl.persyaratan).then((x) => {
-								$scope.$ctrl.filename = x.berkas;
-								$scope.$ctrl.persyaratan.iddetailpersyaratan = x.iddetailpersyaratan;
-							});
+							$scope.$ctrl.model = data[1];
 						});
 					};
 					reader.onerror = function(error) {
@@ -46,7 +39,7 @@ angular.module('app.fileinput.conponent', []).component('fileinput', {
 		};
 
 		$scope.openFile = function() {
-			var inp = document.getElementById('data' + $scope.$ctrl.name);
+			var inp = document.getElementById($scope.$ctrl.idname);
 			inp.click();
 		};
 	},

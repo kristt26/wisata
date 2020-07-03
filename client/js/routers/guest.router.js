@@ -34,6 +34,6 @@ angular.module('guest.router', [ 'ui.router' ]).config(function($stateProvider, 
 			url: '/detail/:id',
 			parent: 'guest',
 			controller: 'detailController',
-			templateUrl: './client/views/guest/detail.html'
+			templateUrl: './client/templates/details.html'
 		});
 });

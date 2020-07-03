@@ -13,8 +13,11 @@
   <link href="./client/assets/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./client/assets/vendor/datatables-net-dt/css/jquery.dataTables.css">
   <link rel="stylesheet" href="./client/assets/libs/css/style.css">
-  <link rel="stylesheet" href="./client/css/ionic.app.min.css">
+  <!-- <link rel="stylesheet" href="./client/css/ionic.app.min.css"> -->
   <link href="./client/css/style.css" rel="stylesheet" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAR1DVTQS77gTqybI9C10eZeJx98Ty_PUo&callback=initMap"></script> -->
   <style type="text/css">
     #mydiv img {
       width: 100%;
@@ -75,6 +78,12 @@
       border-left: 0px;
       border-right: 0px;
     }
+
+    #map {
+      width: 100%;
+      height: 400px;
+      background-color: grey;
+    }
   </style>
 
 </head>
@@ -129,4 +138,7 @@
 <script src="./client/assets/libs/js/main-js.js"></script>
 <script src="./client/assets/vendor/bootstrap-select/js/bootstrap-select.js"></script>
 
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAR1DVTQS77gTqybI9C10eZeJx98Ty_PUo&callback=initMap&libraries=&v=weekly"
+    defer></script>
 </html>

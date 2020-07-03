@@ -20,6 +20,14 @@ class Kategori extends \Restserver\Libraries\REST_Controller
         }
         
     }
+    public function AmbilKategori_get()
+    {
+        $output = $this->Kategori_model->onlyKategori();
+        if($output){
+            $this->response($output, REST_Controller::HTTP_OK);
+        }
+        
+    }
     public function simpan_post()
     {
         $this->load->library('Authorization_Token');

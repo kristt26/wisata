@@ -1,12 +1,12 @@
 angular
 	.module('data.service', [])
-	.factory('ContentService', ContentService)
+	.factory('GambarService', GambarService)
 	.factory('SiswaService', SiswaService)
-	.factory('PersyaratanService', PersyaratanService)
-	.factory('TahunAjaranService', TahunAjaranService);
+	.factory('ObjekService', ObjekService)
+	.factory('KategoriService', KategoriService);
 
-function ContentService($http, $q, message, AuthService, helperServices) {
-	var url = helperServices.url + '/api/kategori';
+function GambarService($http, $q, message, AuthService, helperServices) {
+	var url = helperServices.url + '/api/gambar';
 	var service = {
 		Items: []
 	};
@@ -93,12 +93,6 @@ function ContentService($http, $q, message, AuthService, helperServices) {
 
 	service.post = function(param) {
 		var def = $q.defer();
-
-		if (!param.idcontent) {
-			param.idcontent = 0;
-			param.created = new Date();
-		}
-
 		$http({
 			method: 'Post',
 			url: url,
@@ -106,7 +100,8 @@ function ContentService($http, $q, message, AuthService, helperServices) {
 			data: param
 		}).then(
 			(response) => {
-				service.Items.push(response.data);
+				var data = service.Items.find((x)=>x.idobjek==param.idobjek);
+				data.gambar.push(response.data)
 				def.resolve(response.data);
 			},
 			(err) => {
@@ -303,8 +298,8 @@ function SiswaService($http, $q, message, AuthService, helperServices) {
 	return service;
 }
 
-function PersyaratanService($http, $q, message, AuthService, helperServices) {
-	var url = helperServices.url + '/api/persyaratan';
+function ObjekService($http, $q, message, AuthService, helperServices) {
+	var url = helperServices.url + '/api/objek';
 	var service = {
 		Items: []
 	};
@@ -338,26 +333,10 @@ function PersyaratanService($http, $q, message, AuthService, helperServices) {
 
 	service.getById = function(id) {
 		var def = $q.defer();
-		if (service.instance) {
-			var data = service.Items.find((x) => x.idkategori == id);
+		service.get().then((x)=>{
+			var data = service.Items.find((x) => x.idobjek == id);
 			def.resolve(data);
-		} else {
-			$http({
-				method: 'Get',
-				url: url + '/' + id,
-				headers: AuthService.getHeader()
-			}).then(
-				(response) => {
-					service.Items.push(response.data);
-					def.resolve(response.data);
-				},
-				(err) => {
-					message.error(err.data);
-					def.reject(err);
-				}
-			);
-		}
-
+		})
 		return def.promise;
 	};
 
@@ -370,7 +349,8 @@ function PersyaratanService($http, $q, message, AuthService, helperServices) {
 			data: param
 		}).then(
 			(response) => {
-				service.Items.push(response.data);
+				param.idobjek = response.data;
+				service.Items.push(angular.copy(param));
 				def.resolve(response.data);
 			},
 			(err) => {
@@ -391,10 +371,12 @@ function PersyaratanService($http, $q, message, AuthService, helperServices) {
 			data: param
 		}).then(
 			(response) => {
-				var data = service.Items.find((x) => x.idsiswa == param.idtahunajaran);
+				var data = service.Items.find((x) => x.idobjek == param.idobjek);
 				if (data) {
-					data.persyaratan = param.persyaratan;
-					data.status = param.status;
+					data.nama = param.nama;
+					data.longitude = param.longitude;
+					data.latitude = param.latitude;
+					data.keterangan = param.keterangan;
 				}
 				def.resolve(response.data);
 			},
@@ -429,13 +411,40 @@ function PersyaratanService($http, $q, message, AuthService, helperServices) {
 	return service;
 }
 
-function TahunAjaranService($http, $q, message, AuthService, helperServices) {
-	var url = helperServices.url + '/api/tahunajaran';
+function KategoriService($http, $q, message, AuthService, helperServices) {
+	var url = helperServices.url + '/api/kategori';
 	var service = {
 		Items: []
 	};
 
 	service.get = function() {
+		var def = $q.defer();
+		if (service.instance) {
+			def.resolve(service.Items);
+		} else {
+			$http({
+				method: 'Get',
+				url: url+"/1",
+				headers: AuthService.getHeader()
+			}).then(
+				(response) => {
+					service.instance = true;
+					if (!response.data) {
+						service.Items = [];
+					} else service.Items = response.data;
+					def.resolve(service.Items);
+				},
+				(err) => {
+					message.error(err.data);
+					def.reject(err);
+				}
+			);
+		}
+
+		return def.promise;
+	};
+
+	service.getAll = function() {
 		var def = $q.defer();
 		if (service.instance) {
 			def.resolve(service.Items);
@@ -496,7 +505,8 @@ function TahunAjaranService($http, $q, message, AuthService, helperServices) {
 			data: param
 		}).then(
 			(response) => {
-				service.Items.push(response.data);
+				param.idkategori = response.data
+				service.Items.push(angular.copy(param));
 				def.resolve(response.data);
 			},
 			(err) => {
@@ -517,11 +527,10 @@ function TahunAjaranService($http, $q, message, AuthService, helperServices) {
 			data: param
 		}).then(
 			(response) => {
-				var data = service.Items.find((x) => x.idsiswa == param.idtahunajaran);
+				var data = service.Items.find((x) => x.idkategori == param.idkategori);
 				if (data) {
-					data.tahunajaran = param.tahunajaran;
-					data.semester = param.semester;
-					data.status = param.status;
+					data.nama = param.nama;
+					data.keterangan = param.keterangan;
 				}
 				def.resolve(response.data);
 			},

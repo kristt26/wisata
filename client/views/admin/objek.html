@@ -29,25 +29,23 @@
                     <table class="table table-bordered">
                         <thead class="bg-light">
                             <tr class="border-0">
-                                <th rowspan="2">#</th>
-                                <th rowspan="2">Persyaratan</th>
-                                <th rowspan="2">Status</th>
-                                <th rowspan="2">Aksi</th>
+                                <th>#</th>
+                                <th>Objek</th>
+                                <th>Longitude</th>
+                                <th>Latitude</th>
+                                <th>Keterangan</th>
+                                <th>Kategori</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-
-                            <tr ng-repeat="item in source | filter:{idtahunajaran:ta.idtahunajaran}">
+                            <tr ng-repeat="item in source">
                                 <td>{{$index+1}}</td>
-                                <td class="text-left">{{item.persyaratan}}</td>
-                                <td>
-                                    <div class="checkbox-custom">
-                                        <label>
-                                            <input ng-model="item.status" disabled type="checkbox">
-                                            <b></b>
-                                        </label>
-                                    </div>
-                                </td>
+                                <td class="text-left">{{item.nama}}</td>
+                                <td class="text-left">{{item.longitude}}</td>
+                                <td class="text-left">{{item.latitude}}</td>
+                                <td class="text-left">{{item.keterangan}}</td>
+                                <td class="text-left">{{item.namakategori}}</td>
                                 <td nowrap>
                                     <div class="tdaction justify-content-start">
                                         <a class="btn btn-outline-warning" href="" data-toggle="modal"
@@ -64,7 +62,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  data-backdrop="false"
     aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -77,21 +75,26 @@
             <div class="modal-body">
                 <form ng-submit="save(model)">
                     <div class="form-group">
-                        <label class="col-form-label">Nama Persyaratan</label>
-                        <input ng-model="model.persyaratan" required class="form-control">
+                        <label class="col-form-label">Kategori Wisata</label>
+                        <select class="form-control" ng-options="item as item.nama for item in Kategori" ng-model="itemkategori" ng-change="model.idkategori=itemkategori.idkategori, model.namakategori=itemkategori.nama"></select>
                     </div>
-                    <div class="d-inline-flex" style="margin-bottom: 15px;">
-                        <label style="margin-top: 4px; margin-right: 20px;">Status Persyaratan</label>
-                        <div class="checkbox-custom">
-                            <label>
-
-                                <input ng-model="model.status" type="checkbox">
-                                <b></b>
-
-                            </label>
-
-                        </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Nama Objek</label>
+                        <input ng-model="model.nama" required class="form-control">
                     </div>
+                    <div class="form-group">
+                        <label class="col-form-label">longitude</label>
+                        <input ng-model="model.longitude" required class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">latitude</label>
+                        <input ng-model="model.latitude" required class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Keterangan</label>
+                        <textarea ng-model="model.keterangan" required class="form-control"></textarea>
+                    </div>
+                    
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" ng-disabled="!model" class="btn btn-primary"><i

@@ -17,7 +17,7 @@ class Kategori_model extends CI_Model
                 $itemkategori = [
                     'idkategori' => $value['idkategori'],
                     'nama'=> $value['nama'],
-                    'keterangn'=> $value['keterangan'],
+                    'keterangan'=> $value['keterangan'],
                     'objek'=>array()
                 ];
                 $this->db->where('idkategori', $value['idkategori']);
@@ -39,14 +39,22 @@ class Kategori_model extends CI_Model
                     $this->db->where('idobjek', $value1['idobjek']);
                     $resultkomentar = $this->db->get('komentar');
                     $itemObjek['komentar'] = $resultkomentar->result_array();
+                    array_push($itemkategori['objek'], $itemObjek);
                 }
-                array_push($itemkategori['objek'], $itemObjek);
+                
             }
             array_push($Data['Categories'], $itemkategori);
             
             return $Data['Categories'];
         }
     }
+
+    public function onlyKategori()
+    {
+        $result = $this->db->get('kategori');
+        return $result->result_array();
+    }
+
     public function insert($data)
     {
         $this->db->trans_begin();

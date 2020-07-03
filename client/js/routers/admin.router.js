@@ -11,40 +11,22 @@ angular.module('admin.router', [ 'ui.router' ]).config(function($stateProvider, 
 			controller: 'adminHomeController',
 			templateUrl: './client/views/admin/home.html'
 		})
-		.state('admin-siswa', {
-			url: '/siswa',
+		.state('admin-gambar', {
+			url: '/gambar',
 			parent: 'admin',
-			controller: 'adminSiswaController',
-			templateUrl: './client/views/admin/siswa.html'
-		})
-		.state('admin-detailsiswa', {
-			url: '/siswadetail/:id',
-			parent: 'admin',
-			controller: 'adminSiswaDetailController',
-			templateUrl: './client/views/admin/siswadetail.html'
+			controller: 'adminGambarController',
+			templateUrl: './client/views/admin/gambar.html'
 		})
 		.state('admin-ta', {
-			url: '/tahunajaran',
+			url: '/kategori',
 			parent: 'admin',
-			controller: 'adminTahunAjaranController',
+			controller: 'adminKategoriController',
 			templateUrl: './client/views/admin/tahunajaran.html'
 		})
-		.state('admin-pengumuman', {
-			url: '/pengumuman',
+		.state('admin-objek', {
+			url: '/objek',
 			parent: 'admin',
-			controller: 'adminPengumumanController',
-			templateUrl: './client/views/admin/pengumuman.html'
-		})
-		.state('admin-informasi', {
-			url: '/informasi',
-			parent: 'admin',
-			controller: 'adminInformasiController',
-			templateUrl: './client/views/admin/informasi.html'
-		})
-		.state('admin-persyaratan', {
-			url: '/persyaratan',
-			parent: 'admin',
-			controller: 'adminPersyaratanController',
-			templateUrl: './client/views/admin/persyaratan.html'
+			controller: 'adminObjekController',
+			templateUrl: './client/views/admin/objek.html'
 		});
 });
