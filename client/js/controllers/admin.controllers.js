@@ -15,6 +15,7 @@ function adminController($scope, $state, AuthService) {
 function adminObjekController($scope, message, ObjekService, helperServices, KategoriService) {
 	$scope.helper = helperServices;
 	$scope.helper.IsBusy = true;
+	$scope.itemkategori = {};
 	ObjekService.get().then((result) => {
 		$scope.helper.IsBusy = false;
 		$scope.source = result;
@@ -30,6 +31,7 @@ function adminObjekController($scope, message, ObjekService, helperServices, Kat
 	};
 	$scope.save = (model) => {
 		$scope.helper.IsBusy = true;
+		model.idkategori =  $scope.itemkategori.idkategori;
 		if (model.idobjek) {
 			ObjekService.put(model).then(
 				(x) => {

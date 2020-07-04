@@ -4,7 +4,7 @@ client/node_modules/
 # !application/cache/index.html
 
 
-application/logs/*
+# application/logs/*
 # application/config/*
 # !application/config/database.php
 # !application/logs/index.html
